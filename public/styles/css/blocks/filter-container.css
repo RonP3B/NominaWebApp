@@ -1,0 +1,20 @@
+.filter-container {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  padding: 0.5rem 0.7rem;
+  overflow: hidden;
+  width: max-content;
+  box-shadow: var(--mainShadow);
+  border-radius: 26px;
+  margin-top: 1.3rem;
+}
+
+.filter-container .filter-content {
+  display: none;
+}
+
+.filter-container .filter-content input {
+  margin-left: 0.255rem;
+  border-radius: 15px;
+}

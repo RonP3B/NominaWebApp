@@ -1,0 +1,191 @@
+<section class="container mt-3 mb-3">
+  <div class="card form-card">
+    <div class="card-header">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+      >
+        <path
+          fill="currentColor"
+          {{#if edit}}
+          d="m21.7 13.35l-1 1l-2.05-2.05l1-1a.55.55 0 0 1 .77 0l1.28 1.28c.21.21.21.56 0 .77M12 18.94l6.06-6.06l2.05 2.05L14.06 21H12v-2.06M12 14c-4.42 0-8 1.79-8 4v2h6v-1.89l4-4c-.66-.08-1.33-.11-2-.11m0-10a4 4 0 0 0-4 4a4 4 0 0 0 4 4a4 4 0 0 0 4-4a4 4 0 0 0-4-4Z"
+          {{else}}
+          d="M19 14q-.425 0-.713-.288T18 13v-2h-2q-.425 0-.713-.288T15 10q0-.425.288-.713T16 9h2V7q0-.425.288-.713T19 6q.425 0 .713.288T20 7v2h2q.425 0 .713.288T23 10q0 .425-.288.713T22 11h-2v2q0 .425-.288.713T19 14ZM9 12q-1.65 0-2.825-1.175T5 8q0-1.65 1.175-2.825T9 4q1.65 0 2.825 1.175T13 8q0 1.65-1.175 2.825T9 12Zm-7 8q-.425 0-.713-.288T1 19v-1.8q0-.85.438-1.563T2.6 14.55q1.55-.775 3.15-1.163T9 13q1.65 0 3.25.388t3.15 1.162q.725.375 1.163 1.088T17 17.2V19q0 .425-.288.713T16 20H2Z"
+          {{/if}}
+        ></path>
+      </svg>
+      <h4 class="mb-0">{{#if edit}}Edición{{else}}Registro{{/if}} de empleado</h4>
+    </div>
+    <div class="card-body">
+      <div class="alert-container">
+        {{#if formMsg}}
+          <div class="alert alert-warning form-alert">
+            <div>
+              <i class="bi bi-exclamation-triangle-fill"></i>
+              <label>{{formMsg}}</label>
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              id="form-alert-btn"
+            ></button>
+          </div>
+        {{/if}}
+      </div>
+      <form
+        method="POST"
+        action="/employees/admin-employees/{{#if edit}}edit{{else}}add{{/if}}"
+        id="form-employee"
+        enctype="multipart/form-data"
+      >
+        {{#if edit}}
+          <input type="hidden" name="id" value="{{employee.id}}" />
+        {{/if}}
+        <div class="form-img mb-2">
+          <p class="mb-0">Foto elegida:</p>
+          <label for="image">
+            <img
+              src="/assets/images/uploaded/{{#if edit}}{{employee.imgPath}}{{else}}defaultEmployee.jpg{{/if}}"
+              alt="imagen del empleado"
+              id="image-added"
+            />
+          </label>
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-6">
+            <div class="form-group mb-2">
+              <div>
+                <label class="form-label" for="image">Foto del empleado:</label>
+                <input
+                  class="form-control form-control-sm {{#unless edit}}required{{/unless}}"
+                  type="file"
+                  id="image"
+                  name="imgPath"
+                  accept="image/*"
+                />
+              </div>
+            </div>
+            <div class="form-group mb-2">
+              <label class="form-label" for="name">Nombre:</label>
+              <input
+                class="form-control form-control-sm required"
+                type="text"
+                id="name"
+                name="name"
+                {{#if edit}}value="{{employee.name}}"{{/if}}
+              />
+            </div>
+            <div class="form-group mb-2">
+              <label class="form-label" for="lastName">Apellido:</label>
+              <input
+                class="form-control form-control-sm required"
+                type="text"
+                id="lastName"
+                name="lastName"
+                {{#if edit}}value="{{employee.lastName}}"{{/if}}
+              />
+            </div>
+            <div class="form-group mb-2">
+              <label class="form-label" for="dateOfBirth">Fecha de Nacimiento:</label>
+              <input
+                class="form-control form-control-sm required"
+                type="date"
+                id="dateOfBirth"
+                name="dateOfBirth"
+                {{#if edit}}value="{{employee.dateOfBirth}}"{{/if}}
+              />
+            </div>
+            <div class="form-group mb-2">
+              <label class="form-label" for="gender">Género:</label>
+              <select
+                class="form-select form-select-sm required"
+                id="gender"
+                name="gender"
+              >
+                <option value="">Selecciona el género</option>
+                <option value="Masculino" {{#if (equal "Masculino" employee.gender)}}selected{{/if}}>
+                  Masculino
+                </option>
+                <option value="Femenino" {{#if (equal "Femenino" employee.gender)}}selected{{/if}}>
+                  Femenino
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-12 col-md-6">
+            <div class="form-group mb-2">
+              <label class="form-label" for="phone">Teléfono:</label>
+              <input
+                class="form-control form-control-sm required"
+                type="tel"
+                id="phone"
+                name="phone"
+                {{#if edit}}value="{{employee.phone}}"{{/if}}
+              />
+            </div>
+            <div class="form-group mb-2">
+              <label class="form-label" for="email">Correo Electrónico:</label>
+              <input
+                class="form-control form-control-sm required"
+                type="email"
+                id="email"
+                name="email"
+                {{#if edit}}value="{{employee.email}}"{{/if}}
+              />
+            </div>
+            <div class="form-group mb-2">
+              <label class="form-label" for="address">Dirección:</label>
+              <input
+                class="form-control form-control-sm required"
+                type="text"
+                id="address"
+                name="address"
+                {{#if edit}}value="{{employee.address}}"{{/if}}
+              />
+            </div>
+            <div class="form-group mb-2">
+              <label class="form-label" for="position">Puesto:</label>
+              <input
+                class="form-control form-control-sm required"
+                type="text"
+                id="position"
+                name="jobPosition"
+                {{#if edit}}value="{{employee.jobPosition}}"{{/if}}
+              />
+            </div>
+            <div class="form-group mb-2">
+              <label class="form-label" for="salary">Sueldo:</label>
+              <div class="input-group">
+                <span class="input-group-text">$</span>
+                <input
+                  class="form-control form-control-sm required"
+                  type="text"
+                  id="salary"
+                  name="salary"
+                  {{#if edit}}value="{{employee.salary}}"{{/if}}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="buttons-container">
+          <a
+            href="/employees/admin-employees"
+            class="btn btn-warning form-btn form-btn-secondary"
+          >
+            Volver
+          </a>
+          <button
+            type="button"
+            class="btn btn-warning form-btn form-btn-primary ms-1"
+            id="btn-employee"
+          >
+            Guardar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

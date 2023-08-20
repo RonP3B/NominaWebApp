@@ -1,0 +1,104 @@
+.employee-details {
+  margin-top: 1rem;
+}
+
+.employee-details img {
+  height: 15rem;
+  display: block;
+  width: 100%;
+  max-width: max-content;
+  border: 2px solid transparent;
+  background-image: radial-gradient(circle, #04eeff, #fcca46);
+  margin: 0 auto 1rem auto;
+}
+
+.employee-details .details-content {
+  text-align: center;
+}
+
+.employee-details .details-content strong,
+.pay-detail h3,
+.vacation-card strong {
+  color: var(--mainColor);
+  letter-spacing: 0.1rem;
+  font-weight: 800;
+}
+
+.employee-details .details-content strong,
+.vacation-card strong {
+  font-size: 1.1rem;
+}
+
+.employee-details .details-content p,
+.pay-detail p,
+.vacation-card label {
+  font-size: 1.05rem;
+  color: #d8973c;
+  font-weight: 600;
+}
+
+.pay-detail {
+  display: flex;
+  justify-content: center;
+}
+
+.pay-detail > div:first-child {
+  border-right: 2px solid var(--mainColor);
+  padding-right: 1rem;
+}
+
+.pay-detail > div:last-child {
+  padding-left: 1rem;
+}
+
+.vacation-card {
+  width: 100%;
+  max-width: 650px;
+  margin: 0 auto;
+  box-shadow: var(--mainShadow);
+}
+
+.vacation-card .card-header {
+  background-color: var(--mainColor);
+  text-align: center;
+  color: whitesmoke;
+  padding: 0.45rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vacation-card .card-header h5 {
+  font-weight: 700;
+}
+
+.vacation-card .card-header .badge {
+  background-color: #d8973c;
+}
+
+.no-vacations {
+  text-align: center;
+  color: var(--mainColor);
+}
+
+.no-vacations svg {
+  width: 5rem;
+  height: 5rem;
+}
+
+.no-vacations h5 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .employee-details {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .employee-details img {
+    margin: 0;
+  }
+}

@@ -1,0 +1,13 @@
+@import url("./base/variables.css");
+@import url("./base/body.css");
+@import url("./base/header.css");
+@import url("./base/main.css");
+@import url("./base/footer.css");
+@import url("./blocks/form-card.css");
+@import url("./blocks/employee-card.css");
+@import url("./blocks/section-employee.css");
+@import url("./blocks//buttons.css");
+@import url("./blocks/nav-tabs.css");
+@import url("./blocks/employee-details.css");
+@import url("./blocks/filter-container.css");
+@import url("./blocks/not-found.css");

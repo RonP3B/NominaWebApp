@@ -1,0 +1,10 @@
+.not-found h1 {
+  color: var(--mainColor);
+  font-weight: 700;
+  letter-spacing: 0.1rem;
+}
+
+.not-found p {
+  font-weight: 500;
+  color: #d8973c;
+}

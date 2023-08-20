@@ -1,0 +1,129 @@
+<section class="container mt-3 mb-3">
+  <div class="card form-card">
+    <div class="card-header">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        viewBox="0 0 16 16"
+      ><g fill="currentColor"><path
+            d="M12.5 16a3.5 3.5 0 1 0 0-7a3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Z"
+          ></path><path
+            d="M2 1a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v7.256A4.493 4.493 0 0 0 12.5 8a4.493 4.493 0 0 0-3.59 1.787A.498.498 0 0 0 9 9.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .39-.187A4.476 4.476 0 0 0 8.027 12H6.5a.5.5 0 0 0-.5.5V16H3a1 1 0 0 1-1-1V1Zm2 1.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5Zm3 0v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5Zm3.5-.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1ZM4 5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5ZM7.5 5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Zm2.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5ZM4.5 8a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-1Z"
+          ></path></g></svg>
+      <h4 class="mb-0">Registro de empresa</h4>
+    </div>
+    <div class="card-body">
+      <div class="alert-container">
+        {{#if formMsg}}
+          <div class="alert alert-warning form-alert">
+            <div>
+              <i class="bi bi-exclamation-triangle-fill"></i>
+              <label>{{formMsg}}</label>
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              id="form-alert-btn"
+            ></button>
+          </div>
+        {{/if}}
+      </div>
+      <form method="POST" action="/sign-up" id="form-signup">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group mb-2">
+              <label class="form-label" for="name">Nombre de la empresa:</label>
+              <input
+                class="form-control form-control-sm required"
+                type="text"
+                id="name"
+                name="name"
+                autofocus
+              />
+            </div>
+            <div class="form-group mb-2">
+              <label class="form-label" for="companyUser">Usuario de la empresa:</label>
+              <input
+                class="form-control form-control-sm required"
+                type="text"
+                id="companyUser"
+                name="companyUser"
+              />
+            </div>
+            <div class="form-group mb-2">
+              <label class="form-label" for="address">Dirección de la empresa:</label>
+              <input
+                class="form-control form-control-sm required"
+                type="text"
+                id="address"
+                name="address"
+              />
+            </div>
+            <div class="form-group mb-2">
+              <label class="form-label" for="website">Sitio web de la empresa:</label>
+              <input
+                class="form-control form-control-sm required"
+                type="url"
+                id="website"
+                name="website"
+              />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group mb-2">
+              <label class="form-label" for="phone">Telefono de la empresa:</label>
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                class="form-control form-control-sm required"
+              />
+            </div>
+            <div class="form-group mb-2">
+              <label class="form-label" for="email">Correo electrónico de la
+                empresa:</label>
+              <input
+                class="form-control form-control-sm required"
+                type="email"
+                id="email"
+                name="email"
+              />
+            </div>
+            <div class="form-group mb-2">
+              <label class="form-label" for="password">Contraseña:</label>
+              <input
+                class="form-control form-control-sm required"
+                type="password"
+                id="password"
+                name="password"
+              />
+            </div>
+            <div class="form-group mb-2">
+              <label class="form-label" for="confirmPassword">Confirmar
+                contraseña:</label>
+              <input
+                class="form-control form-control-sm required"
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="buttons-container">
+          <a href="/" class="btn btn-warning form-btn form-btn-secondary">
+            Volver
+          </a>
+          <button
+            type="button"
+            class="btn btn-warning form-btn form-btn-primary ms-1"
+            id="btn-signup"
+          >
+            Registrar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

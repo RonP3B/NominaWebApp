@@ -1,0 +1,53 @@
+.form-btn {
+  border: 1px solid #b1a848bb;
+  padding: 0.175rem;
+  width: 40%;
+  color: whitesmoke;
+  font-weight: 600;
+}
+
+.main-btn {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: whitesmoke;
+}
+
+.circle-btn {
+  background-color: var(--mainColor);
+  color: whitesmoke;
+  border: 1px solid #d8973c;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
+.form-btn.form-btn-primary,
+.main-btn.main-btn-primary {
+  background-color: var(--mainColor);
+}
+
+.form-btn.form-btn-secondary,
+.main-btn.main-btn-secondary {
+  background-color: #ffb347;
+}
+
+.form-btn.form-btn-primary:hover,
+.main-btn.main-btn-primary:hover {
+  background-color: #ddb23d;
+}
+
+.form-btn.form-btn-secondary:hover,
+.main-btn.main-btn-secondary:hover {
+  background-color: #d8973c;
+}
+
+.form-btn:hover,
+.main-btn:hover {
+  color: whitesmoke;
+}
+
+.main-btn:hover {
+  background-color: #d6b14d;
+}

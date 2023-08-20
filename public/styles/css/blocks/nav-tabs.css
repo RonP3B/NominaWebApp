@@ -1,0 +1,31 @@
+.nav-tabs {
+  border-bottom-color: var(--mainColor);
+  border-bottom-width: 2px;
+}
+
+.nav-tabs .nav-link {
+  background-color: var(--mainColor);
+  color: whitesmoke;
+  font-weight: 600;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: #ddb23d;
+  color: whitesmoke;
+}
+
+.tab-pane {
+  min-height: 280px;
+}
+
+@media (max-width: 362px) {
+  .nav-tabs .nav-link {
+    padding: 0.2rem 0.7rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .nav-tabs .nav-link {
+    font-size: 1.2rem;
+  }
+}

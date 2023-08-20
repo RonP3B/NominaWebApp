@@ -1,0 +1,95 @@
+<section class="container mt-3 mb-3">
+  <div class="card form-card mx-auto" style="max-width: 650px;">
+    <div class="card-header text-center">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+      >
+        <path
+            fill="currentColor"
+            d="M13 21q-1.85 0-3.462-.688q-1.613-.687-2.838-1.887L8.125 17q.95.925 2.2 1.462Q11.575 19 13 19q2.9 0 4.95-2.05Q20 14.9 20 12q0-2.9-2.05-4.95Q15.9 5 13 5q-2.9 0-4.95 2.05Q6 9.1 6 12v.175l1.825-1.825l1.425 1.4L5 16L.75 11.75l1.425-1.4L4 12.2V12q0-1.875.713-3.513q.712-1.637 1.925-2.85q1.212-1.212 2.85-1.925Q11.125 3 13 3t3.513.712q1.637.713 2.85 1.925q1.212 1.213 1.925 2.85Q22 10.125 22 12q0 3.75-2.625 6.375T13 21Zm-2-5q-.425 0-.712-.288Q10 15.425 10 15v-3q0-.425.288-.713Q10.575 11 11 11v-1q0-.825.588-1.413Q12.175 8 13 8t1.413.587Q15 9.175 15 10v1q.425 0 .713.287q.287.288.287.713v3q0 .425-.287.712Q15.425 16 15 16Zm1-5h2v-1q0-.425-.287-.713Q13.425 9 13 9t-.712.287Q12 9.575 12 10Z"
+        ></path>
+      </svg>
+      <h5 class="mb-0">Recuperar cuenta</h5>
+    </div>
+    <div class="card-body">
+      <div class="alert-container">
+        {{#if formMsg}}
+          <div class="alert alert-warning form-alert">
+            <div>
+              <i class="bi bi-exclamation-triangle-fill"></i>
+              <label>{{formMsg}}</label>
+            </div>
+            <button
+              type="button"
+              class="btn-close"
+              id="form-alert-btn"
+            ></button>
+          </div>
+        {{/if}}
+      </div>
+      <form
+        action="/reset-pass/{{#if findUser}}find-company{{/if}}{{#if confirmCode}}confirm-code{{/if}}{{#if resetPass}}reset-password{{/if}}" 
+        method="POST"
+        id="{{#if resetPass}}form-reset{{else}}default-form{{/if}}"
+      >
+        <div class="form-group mb-2">
+          {{#if findUser}}
+            <label for="companyUser">Usuario de la empresa:</label>
+            <input
+              class="form-control form-control-sm required"
+              type="text"
+              id="companyUser"
+              name="companyUser"
+              autofocus
+            />
+          {{/if}}
+          {{#if confirmCode}}
+            <label for="code">Codigo de confirmación:</label>
+            <input
+              class="form-control form-control-sm required"
+              type="text"
+              id="code"
+              name="code"
+              autofocus
+            />
+          {{/if}}
+          {{#if resetPass}}
+            <div class="form-group mb-2">
+              <label for="password">Nueva contraseña:</label>
+              <input
+                class="form-control form-control-sm required"
+                type="password"
+                id="password"
+                name="password"
+                autofocus
+              />
+            </div>
+            <div class="form-group mb-2">
+              <label for="confirmPassword">Confirmar nueva contraseña:</label>
+              <input
+                class="form-control form-control-sm required"
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+              />
+            </div>
+          {{/if}}
+        </div>
+        <div class="buttons-container">
+          <a href="/" class="btn btn-warning form-btn form-btn-secondary">Volver al login</a>
+          <button 
+            type="button" 
+            id="{{#if resetPass}}btn-resetPass{{else}}btn-submit{{/if}}" 
+            class="btn btn-warning form-btn form-btn-primary ms-1">
+            {{#if findUser}}Buscar empresa{{/if}}
+            {{#if confirmCode}}Verificar código{{/if}}
+            {{#if resetPass}}Actualizar contraseña{{/if}}
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
